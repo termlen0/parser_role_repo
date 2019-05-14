@@ -1,0 +1,16 @@
+---
+- name: TEST COMMAND PARSERS
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  tasks:
+
+    - name: TEST THE PARSER ROLE
+      include_role:
+        name: ansible-parsers
+      vars:
+        parser: ios_show_ip_interfaces_brief
+        raw: "{{ lookup('file', './parser_raw/show_ip_interfaces_brief.raw') }}"
+        ansible_network_os: ios
+
+    - debug: var=output

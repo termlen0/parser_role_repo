@@ -1,0 +1,5 @@
+- name: PARSE THE RAW DATA
+  command_parser:
+    file: "../parsers/{{ parser }}.yml"
+    content: "{{ raw }}"
+  register: output

@@ -1,0 +1,11 @@
+---
+# tasks file for ansible-parsers
+
+#- debug: var=role_path
+- name: INVOKE THE NETWORK ENGINE
+  include_role:
+    name: ansible-network.network-engine
+
+
+- name: INVOKE THE APPROPRIATE PARSER
+  include_tasks: "{{ parser }}.yml"
